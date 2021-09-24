@@ -11,13 +11,17 @@ sudo apt-get install linux-headers-generic
 ```
 
 ```bash
-wget https://developer.download.nvidia.com/compute/cuda/repos/ubuntu1804/sbsa/cuda-ubuntu1804.pin
-sudo mv cuda-ubuntu1804.pin /etc/apt/preferences.d/cuda-repository-pin-600
-sudo apt-key adv --fetch-keys https://developer.download.nvidia.com/compute/cuda/repos/ubuntu1804/sbsa/7fa2af80.pub
-sudo add-apt-repository "deb https://developer.download.nvidia.com/compute/cuda/repos/ubuntu1804/sbsa/ /"
-sudo apt-get update
-sudo apt-get -y install cuda
+nano  ~/.bashrc
+```
+add :
+```bash
+export CUDA_HOME=/usr/local/cuda-10.2/
+export LD_LIBRARY_PATH=/usr/local/cuda-10.2/lib64:$LD_LIBRARY_PATH
+export PATH=${CUDA_HOME}bin:$PATH
 ```
 
+```bash
+source ~/.bashrc
+```
 or 
 
