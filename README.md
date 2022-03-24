@@ -25,3 +25,9 @@ source ~/.bashrc
 ```
 or 
 
+influxdb
+```bash
+sudo apt-get install influxdb
+sudo apt-get install telegraf
+```
+https://docs.influxdata.com/telegraf/v1.21/introduction/getting-started/
