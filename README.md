@@ -22,6 +22,7 @@ export PATH=${CUDA_HOME}bin:$PATH
 
 ```bash
 source ~/.bashrc
+sudo apt install nvidia-cuda-toolkit
 ```
 or 
 
