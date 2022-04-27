@@ -1,0 +1,18 @@
+樹莓派 
+1.	Raspberry Pi 3 Model B+  
+2.	變壓器+micro線
+3.	B+ GPIO 擴充板
+4.	64G SD卡
+
+感測器
+1.	溫溼度感測器(DHT-22)
+https://www.ardumotive.com/how-to-use-the-dht-22-en.html
+
+2.	照度感測器(GY-30)
+https://www.raspberrypi-spy.co.uk/2015/03/bh1750fvi-i2c-digital-light-intensity-sensor/
+
+3.GPS(NEO-7M UBLOX GPS 或 NEO-6M)
+http://www.198933.xyz/detail.php?id=147
+
+4.風向計(RS485 Wind Direction Transmitter)
+https://wiki.dfrobot.com/RS485_Wind_Direction_Transmitter_SKU_SEN0482
