@@ -33,3 +33,8 @@ sudo apt-get install telegraf
 ```
 https://docs.influxdata.com/telegraf/v1.21/introduction/getting-started/
 https://hackmd.io/@0p3Xnj8xQ66lEl0EHA_2RQ/Skoa_phvB
+
+MQTT:
+```bash
+pip3 install paho-mqtt
+```
