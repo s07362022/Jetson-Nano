@@ -9,74 +9,44 @@ gps = "12.123.4"
 wind = "0"
 
 
-#DB########################################
-def sql(tem,dry,light,gps1,gps2):
-    data = [
-        {
-            "measurement": "env",
-            "tags": {
-                "topic": "Sensor/env"
-            },
-            "fields": {
-                "tem": tem
-            }
+json_body = [
+    {
+        "measurement": "env",
+        "tags": {
+            "topic": "Sensor/env"
+        },
+        #"time":str(datetime.utcnow()),
+        "fields": {
+            "tem": tem
         }
-    ]
-    client.write_points(data)
-    data2 = [
-        {
-            "measurement": "env",
-            "tags": {
-                "topic": "Sensor/env"
-            },
-            "fields": {
-                "dry": dry
-            }
+    },
+    {
+        "measurement": "env",
+        "tags": {
+            "topic": "Sensor/env"
+        },
+        #"time": str(datetime.utcnow()),
+        "fields": {
+            "dry": dry
         }
-    ]
-    client.write_points(data2)
-    data3 = [
-        {
-            "measurement": "env",
-            "tags": {
-                "topic": "Sensor/env"
-            },
-            "fields": {
-                "light":light 
-            }
+    },
+    {
+        "measurement": "env",
+        "tags": {
+            "topic": "Sensor/env"
+        },
+        #"time": str(datetime.utcnow()),
+        "fields": {
+            "light":light
         }
-    ]
-    client.write_points(data3)
-    data4 = [
-        {
-            "measurement": "env",
-            "tags": {
-                "topic": "Sensor/env"
-            },
-            "fields": {
-                "gps": gps1
-            }
-        }
-    ]
-    # client.write_points(data4)
-    data5 = [
-        {
-            "measurement": "env",
-            "tags": {
-                "topic": "Sensor/env"
-            },
-            "fields": {
-                "gps2": gps2
-            }
-        }
-    ]
-    # client.write_points(data5)
-############db############
+    }
+]
 
-#sql(tem,dry,light,gps1,gps2)
-#,gps,wind)
-
-
-#result = client.query('select * from env') 
-#print(list(result.get_points())[-1])
-
+#for i in range(15):
+    #sql(tem,dry,light,gps1,gps2)
+    #client.write_points(json_body)
+   
+def get_sql():
+    result = client.query('select * from env') 
+    insql_list=list(result.get_points())
+    return insql_list
