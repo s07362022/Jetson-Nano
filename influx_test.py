@@ -1,42 +1,63 @@
-from operator import imod
 from influxdb import InfluxDBClient
 import time
-client = InfluxDBClient('172.20.10.13', 8086, '', '', 'smoke_test1') 
+client = InfluxDBClient('172.20.10.2', 8086, '', '', 'env_data') 
 
-level_value = [0,1,2,3,4,5]
+tem = 23.9
+dry = 50.2
+light = 600
+gps = "12.123.4"
+wind = "0"
 
 
 #DB########################################
-def sql(level_value):
-    data = [
-        {
-            "measurement": "smoke_level",
-            "tags": {
-                "topic": "Sensor/level"
-            },
-            "fields": {
-                "value": level_value[-1]
-            }
+def sql(tem,dry,light):
+    json_body = [
+    {
+        "measurement": "env",
+        "tags": {
+            "topic": "Sensor/env"
+        },
+        #"time":str(datetime.utcnow()),
+        "fields": {
+            "tem": tem
         }
-    ]
-    data2 = [
-        {
-            "measurement": "smoke_level",
-            "tags": {
-                "topic": "Sensor/data"
-            },
-            "fields": {
-                "value": level_value[1]
-            }
+    },
+    {
+        "measurement": "env",
+        "tags": {
+            "topic": "Sensor/env"
+        },
+        #"time": str(datetime.utcnow()),
+        "fields": {
+            "dry": dry
         }
+    },
+    {
+        "measurement": "env",
+        "tags": {
+            "topic": "Sensor/env"
+        },
+        #"time": str(datetime.utcnow()),
+        "fields": {
+            "light":light
+        }
+    }
     ]
-    client.write_points(data)
-############db############
-#for i in range(10):
-    #level_value.append(0)
-for i in range(10):    
-    sql(level_value)
-    #time.sleep(2)
+    client.write_points(json_body)
 
-result = client.query('select * from smoke_level') 
-print(list(result.get_points()))
+#for i in range(15):
+    #sql(tem,dry,light,gps1,gps2)
+    #client.write_points(json_body)
+   
+def get_sql():
+    result = client.query('select * from env') 
+    insql_list=list(result.get_points())
+    return insql_list
+############db############
+
+#sql(tem,dry,light,gps1,gps2)
+#,gps,wind)
+
+
+#result = client.query('select * from env') 
+#print(list(result.get_points())[-1])
