@@ -37,6 +37,7 @@ sudo service influxdb start
 ```
 https://docs.influxdata.com/telegraf/v1.21/introduction/getting-started/
 https://hackmd.io/@0p3Xnj8xQ66lEl0EHA_2RQ/Skoa_phvB
+https://chowdera.com/2022/03/202203100619325549.html
 
 MQTT:
 ```bash
