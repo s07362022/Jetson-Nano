@@ -1,10 +1,10 @@
 import serial
 import time
-ser = serial.Serial("/dev/ttyUSB1", 9600)
+ser = serial.Serial("/dev/ttyUSB0", 9600)
 
 
 def gps_g():
-    ser = serial.Serial("/dev/ttyUSB1", 9600)
+    ser = serial.Serial("/dev/ttyUSB0", 9600)
     temp = ser.readline()
     if temp.startswith(b'$GNGGA'):
         temp=str(temp)
@@ -23,7 +23,7 @@ def gps_g():
                 print('當前座標：%s,%s' % (latitude, longitude))
                 print('衛星數量：%s' % int(satellite))
                 print('定位時間：%s\n' % time.strftime('%Y-%m-%d %H:%M:%S'))
-                return latitude,longitude
+                return float(latitude),float(longitude)
             else:
                 print('定位數據無效(%s)' % time.strftime('%Y-%m-%d %H:%M:%S'))
                 return 0,0
@@ -35,6 +35,8 @@ def gps_t1():
     while True:
         try:
             if gps_g()!=None:
-                return gps_g()
+                return int(latitude),int(longitude)
+
         except:
             pass
+
