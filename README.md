@@ -43,3 +43,7 @@ MQTT:
 ```bash
 pip3 install paho-mqtt
 ```
+
+語音解決方法 :
+
+https://www.devdungeon.com/content/text-speech-python-pyttsx3
