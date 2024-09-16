@@ -1,8 +1,3 @@
-## google  
-google
-```python
-import pandas
-```
 
 
 # Jetson-Nano
